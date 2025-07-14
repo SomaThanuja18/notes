@@ -15,7 +15,10 @@ import userRoutes from './routes/user.js';
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173','https://notes-hy0p2cazw-thanujas-projects-53a28f5f.vercel.app'],
+  credentials: true
+}));
 app.use(express.json());
 
 
@@ -40,7 +43,7 @@ app.use('/api/user', userRoutes);
   const connectToDatabase = async () => {
   try {
     await mongoose.connect(
-      'mongodb+srv://babunkundu60:0EEN18UaPa93Fk91@stminorg27.plp450e.mongodb.net/thanuja-notes-app?retryWrites=true&w=majority&appName=stminorg27'
+      'mongodb+srv://thanujasoma2004:wkjklUgx7NlzgEuV@cluster0.elr1t66.mongodb.net/thanuja-notes-app?retryWrites=true&w=majority&appName=Cluster0'
     );
     console.log('Connected to MongoDB');
 
