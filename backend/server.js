@@ -13,12 +13,24 @@ import userRoutes from './routes/user.js';
 
 
 const app = express();
+const allowedOrigins = ['http://localhost:5173','https://notes-aa8c.vercel.app','https://notes-hy0p2cazw-thanujas-projects-53a28f5f.vercel.app'];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true // if you're using cookies/token in headers
+}));
 
 // Middleware
-app.use(cors({
-  origin: ['http://localhost:5173','https://notes-hy0p2cazw-thanujas-projects-53a28f5f.vercel.app'],
-  credentials: true
-}));
+// app.use(cors({
+//   origin: ['http://localhost:5173','https://notes-hy0p2cazw-thanujas-projects-53a28f5f.vercel.app'],
+//   credentials: true
+// }));
 app.use(express.json());
 
 
