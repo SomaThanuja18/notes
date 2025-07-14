@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL:'https://notes-x3w1.onrender.com',
+  baseURL:'https://notes-x3w1.onrender.com/api',
 });
 
 // Inject token into headers
