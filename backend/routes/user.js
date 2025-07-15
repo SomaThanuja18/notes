@@ -13,6 +13,7 @@ const otpStore = new Map();
 const router = express.Router();
 
 router.post('/forgot-password', async (req, res) => {
+ console.log('Froget route password hit');
   const { email } = req.body;
   const user = await User.findOne({ email });
   if (!user) return res.status(404).json({ message: 'User not found' });
